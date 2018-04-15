@@ -1,11 +1,28 @@
 import screenGrab
 import numpy as np
 import pyhue
+import math
 import time
 import json
 
 def RGBtoHEX(rgb):
 	return "#" + ''.join( ['%X' % int(value) for value in rgb])
+
+def RGBtoXY(rgb):
+	trans_mat = np.matrix( [[.65, .1035, .197],[.234, .743, .023],[0, .053, 1.036]] )
+	norm      = list( map(enhanceColor, np.divide(rgb, 255.)) )
+	xyz       = np.dot(trans_mat, np.transpose(norm))
+	mag       = np.sum(xyz)
+
+	if mag == 0:
+		return (0., 0.)
+
+	return np.divide(xyz[:2], mag)
+
+def enhanceColor(value):
+
+	if value > .0405: return math.pow( (value + .055)/(1.055), 2.4)
+	return value / 12.92
 
 class Application():
 
@@ -34,7 +51,8 @@ class Application():
 
 	def mainloop(self):
 	
-		pass
+		while True:
+			print(RGBtoXY(self.getColor()))
 
 
 
@@ -57,6 +75,7 @@ def pixelTest(monitor):
 def main():
 
 	ctrl = Application()
+	ctrl.mainloop()
 
 if __name__ == "__main__":
 	main()
