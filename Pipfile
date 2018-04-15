@@ -7,10 +7,9 @@ name = "pypi"
 
 [packages]
 
-pillow = "*"
-opencv-python = "*"
 numpy = "*"
 mss = "*"
+pyhue = "*"
 
 
 [dev-packages]
