@@ -13,6 +13,7 @@ Screen Grabbing
 ---------------
 
 To grab the data from the screen we have a python file called screenGrab. What this does is pretty simple. We use mss and numpy to capture pixel data from the monitor and return it. Its just that simple. Using mss over say the Pillow library has two big advantages: 
+
 	1) its way faster than PILs ImageGrab
 	2) it can be used cross-platform, unlike PIL's ImageGrab
 
