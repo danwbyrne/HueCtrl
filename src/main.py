@@ -1,5 +1,4 @@
 import screenGrab
-import tkinter as tk
 import numpy as np
 import pyhue
 import time
@@ -8,27 +7,17 @@ import json
 def RGBtoHEX(rgb):
 	return "#" + ''.join( ['%X' % int(value) for value in rgb])
 
-class Application(tk.Frame):
+class Application():
 
-	def __init__(self, master=None):
-		super().__init__(master)
+	def __init__(self):
 		self.config = None
 
-		self.pack()
 		self.loadConfig()
-		self.create_widgets()
 
 	def loadConfig(self):
 
 		with open('config.json', 'rb') as cfg_file:
 			self.config = json.load(cfg_file)
-
-	def create_widgets(self):
-		self.start_button = tk.Button(self)
-
-		self.start_button['text']    = "Click to start HueCtrl"
-		self.start_button['command'] = self.run()
-		self.start_button.pack(side = "top")
 
 	def getColor(self):
 		color  = np.zeros(3)
@@ -43,10 +32,9 @@ class Application(tk.Frame):
 
 		return np.divide(color, num)
 
-	def run(self):
+	def mainloop(self):
 	
-		self.start_button.config( bg = RGBtoHEX(self.getColor()) )
-
+		pass
 
 
 
@@ -61,10 +49,14 @@ def pixelTest(monitor):
 	screenGrab.getPixels(monitor)
 	return time.time()-start
 
+
+
+
+
+
 def main():
-	root = tk.Tk()
+
 	ctrl = Application()
-	ctrl.mainloop()
 
 if __name__ == "__main__":
 	main()
