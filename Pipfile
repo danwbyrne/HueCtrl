@@ -9,7 +9,6 @@ name = "pypi"
 
 numpy = "*"
 mss = "*"
-pyhue = "*"
 
 
 [dev-packages]
