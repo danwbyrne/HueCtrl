@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3359e1873e298ce9b181e7b871ce76244e09ddf27eaa103591415ec4c3eb6629"
+            "sha256": "99895dd11c4ffadb8e684e902953f91c859e7029d754547a9177202d467d7ecf"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -51,13 +51,6 @@
             ],
             "index": "pypi",
             "version": "==1.14.2"
-        },
-        "pyhue": {
-            "hashes": [
-                "sha256:b75766bfe39d2030fc579b39df47169959b8357a90b8fbf2f11dc86c54f0fb43"
-            ],
-            "index": "pypi",
-            "version": "==0.7.6"
         }
     },
     "develop": {}

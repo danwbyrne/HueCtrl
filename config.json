@@ -1,9 +1,10 @@
 {
-	"bridge": "bridge_ip",
-	"username": "username",
+	"bridge": "192.168.1.4",
+	"username": "aH1sqxrfhKLX4zmotUeUL0Nv-eB1BkZtHdLMH3ww",
+	"lights": [21],
 	"brightness": 100,
 	"monitor": {
-		"top": 490,
+		"top": 190,
 		"left": 860,
 		"width": 200,
 		"height": 100
