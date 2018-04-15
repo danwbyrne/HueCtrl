@@ -24,4 +24,4 @@ TODOS: I want to make this a threaded process that way it can be constantly gett
 Phillips Bridge Connection
 --------------------------
 
-Originally when I wrote this program in python 2.7.x we used a library called pyhue <https://pypi.python.org/pypi/pyhue/0.7.6> and although this library has been updated for python 3.x.x I had problems with it immediately (unexplained recursion errors) so I've rewritten pyhue for my own needs. I will be expanding on it as I need to but for now it is a bridge class which houses our connection along with some nice wrapper functions that make the API calls easier for me.
+Originally when I wrote this program in python 2.7.x I used <https://pypi.python.org/pypi/pyhue/0.7.6> and although this library has been updated for python 3.x.x I had problems with it immediately (unexplained recursion errors) so I've rewritten pyhue for my own needs. I will be expanding on it as I need to but for now it is a bridge class which houses our connection along with some nice wrapper functions that make the API calls easier for me.
