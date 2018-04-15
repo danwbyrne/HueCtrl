@@ -1,19 +1,41 @@
 import screenGrab
 import pyhue
 import time
+import json
+
+class App():
+
+	def __init__(self):
+
+		self.config = None
+
+
+
+
+		loadConfig()
+
+	def loadConfig(self):
+
+		with open('config.json', 'rb') as cfg_file:
+			self.config = json.load(cfg_file)
+
+	def test(self):
+
+		return speedTest(self.config['monitor'])
+
 
 def speedTest(monitor):
 
-	return sum([test(monitor) for i in range(100)])/100.
+	return sum([pixelTest(monitor) for i in range(100)])/100.
 
-def test(monitor):
+def pixelTest(monitor):
 	start = time.time()
 	screenGrab.getPixels(monitor)
 	return time.time()-start
 
 def main():
-	mon = {"top": 0, "left": 0, "width": 1920, "height": 1080}
-	print(speedTest(mon))
+	ctrl = App()
+	print(ctrl.test())
 
 if __name__ == "__main__":
 	main()
