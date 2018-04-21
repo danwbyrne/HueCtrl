@@ -1,6 +1,5 @@
 import numpy as np
 import threading
-import random
 import mss
 
 
@@ -39,27 +38,17 @@ class Capture(threading.Thread):
 		rgb = np.divide(color, num*255.)
 		return rgb
 
-	def getColor2(self):
-
-		color  = np.zeros(3)
-		screen = self.cptr
-		shape  = screen.shape[:2]
-		polls  = 5000
-
-		pixels = [(random.randint(1, shape[0]-1), random.randint(1, shape[1]-1)) for i in range(polls)]
-
-		for pixel in pixels:
-
-			color = np.add(color, screen[pixel[0], pixel[1]])
-
-		return np.divide(color, polls*255.)
-
 	def run(self):
 
-		while True:
-			
-			self.grab()
-			self.value = self.getColor()
+		try:
+
+			while True:
+				
+				self.grab()
+				self.value = self.getColor()
+
+		except KeyboardInterrupt:
+			exit()
 
 	def getValue(self):
 
