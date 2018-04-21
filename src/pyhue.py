@@ -37,6 +37,9 @@ def RGBtoXY(r,g,b):
 def getBri(rgb):
 	return int((0.299*rgb[0] + 0.587*rgb[1] + 0.0722*rgb[2])*255.)
 
+def getTransitionTime(color1, color2):
+	return (round(10*(math.sqrt(sum([(color1[i]-color2[i])**2 for i in range(3)]) ) / 1.73)))
+
 
 class Bridge:
 

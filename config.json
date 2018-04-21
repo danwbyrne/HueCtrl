@@ -1,7 +1,7 @@
 {
 	"bridge": "192.168.1.4",
 	"username": "aH1sqxrfhKLX4zmotUeUL0Nv-eB1BkZtHdLMH3ww",
-	"lights": [21],
+	"lights": [22],
 	"brightness": 100,
 	"monitor": {
 		"top": 190,

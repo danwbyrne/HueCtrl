@@ -1,9 +1,9 @@
 import hueCtrl
 import screenGrab
 import threading
+import time
 
 def main():
-	
 	threads = []
 	ctrl = hueCtrl.Application()
 	our_capture = screenGrab.Capture(ctrl.config['monitor'])
@@ -12,12 +12,11 @@ def main():
 	ctrl.loadCapture(our_capture)
 	our_capture.start()
 	ctrl.start()
-	threads.append(our_capture)
-	threads.append(ctrl)
-
-	for t in threads:
-		t.join()
-
+	ctrl.run()
 
 if __name__ == "__main__":
-	main()
+	try:
+		main()
+
+	except KeyboardInterrupt:
+		exit()

@@ -12,6 +12,7 @@ class Application(threading.Thread):
 		self.config  = None
 		self.bridge  = None
 		self.capture = None
+		self.cur_clr = [0,0,0]
 
 		self.loadConfig()
 		self.connect()
@@ -37,9 +38,11 @@ class Application(threading.Thread):
 			
 			new_color = self.capture.getValue()
 			new_xy    = pyhue.RGBtoXY(new_color[0], new_color[1], new_color[2])
-			new_bri   = pyhue.getBri(new_color)
+			new_bri   = min(5*pyhue.getBri(new_color), 255)
+			#trans     = pyhue.getTransitionTime(self.cur_clr, new_color)
+			#self.cur_clr = new_color
 
 			temp_state = json.dumps({"xy":new_xy, "bri":new_bri, "transitiontime":0})
-			self.bridge.setState(21, temp_state)
+			self.bridge.setState(22, temp_state)
 
 			time.sleep(.15) #sleep so we can limit our commands/sec to around 10/sec
